@@ -1,17 +1,17 @@
-const cookieParser = require('cookie-parser');
-const express = require('express')
-const messagesRouter = require('./messages')
-const authRouter = require('./auth')
+const cookieParser = require("cookie-parser");
+const express = require("express");
+const messagesRouter = require("./messages");
+const authRouter = require("./auth");
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
-app.use(express.json())
-app.use(cookieParser())
+app.use(express.json());
+app.use(cookieParser('random secret string'));
 
-app.use('/messages', messagesRouter)
+app.use("/messages", messagesRouter);
 app.use(authRouter);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
